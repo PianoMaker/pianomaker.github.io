@@ -33,6 +33,11 @@ body {
     height: 100%
 }
 
+#right {
+    height: 100%;
+    width: 100%;
+}
+
 
 .oval {
     background-color: #ff8;
@@ -40,4 +45,38 @@ body {
     border-radius: 10px;
     padding: 15px;
     height: 100%;
+}
+
+.site {
+    width: 50%;
+    border: 3px solid #aa5;
+    border-radius: 25px;
+    padding: 8px;
+    background-color: white;
+    margin: 30px;
+    animation: swing 4s ease-in-out infinite;
+}
+
+.solf {
+    animation: swing 3.5s ease-in-out infinite;
+    margin-left:100px;
+}
+
+.personal {
+    animation: swing 5.5s ease-in-out infinite;
+    margin-left: 250px;
+}
+
+@keyframes swing {
+    0% {
+        transform: translateX(50px);
+    }
+
+    50% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(50px);
+    }
 }
