@@ -1,6 +1,43 @@
+﻿* {
+    box-sizing: border-box;
+}
+
 h1 {
   color: darkred  
 }
 a {
-  color: #5c5;
+  color: #5a5;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 15px;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #aa5;
+    border-radius: 10px;
+    gap: 10px;
+    background: linear-gradient(#a8ff6f 40%, #7af9bc 100%);
+}
+
+
+
+#left {
+    
+    height: 100%
+}
+
+
+.oval {
+    background-color: #ff8;
+    border: 1px solid #aa5;
+    border-radius: 10px;
+    padding: 15px;
+    height: 100%;
 }
