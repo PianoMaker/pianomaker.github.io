@@ -75,6 +75,7 @@ body {
     animation: swing 4s ease-in-out infinite;
     text-align: center;
     --white-opacity: 0;
+    
 }
 
     .site::after {
@@ -83,11 +84,11 @@ body {
         content: "";
         height: 2.2em;
         width: 200%;
-        background-color: white;
-        z-index: -1;
+        background-color: white;        
         overflow: hidden;
         animation: whites 4s ease-in-out infinite;
         opacity: var(--white-opacity);
+
     }
 
     .site a {
@@ -145,15 +146,33 @@ body {
     }
 
 
-    @media(max-width: 900px) {
-        .main {
-        display: flex;
-        margin-left: 0;        
+@media(max-width: 900px) {
+
+    html, body {
+        padding: 0;
+        
     }
+
+    .main {
+    display: flex;
+    margin-left: 0;        
+    
+    }
+    .site,
+    .solf,
+    .personal {
+        margin-left: 0;
+        margin-right: 0;
+        width: 90%;
+    }
+
+        .site::after {
+            display: none;
+        }
 }
 
 
-@media(max-width: 700px) {
+@media(max-width: 712px) {
 
     html, body {
         padding: 0px;
@@ -164,11 +183,15 @@ body {
         margin-left: 0;        
         margin:0;
     }
-    .site, .solf, personal {
+    .site, .solf, .personal {
         animation: none;
         margin-left: 0;
         width: 90%;
     }
+
+        .site::after {
+            display:none;
+        }
 }
 
 
@@ -198,9 +221,15 @@ body {
 @keyframes whites {
     0%, 100% {
         opacity: 0.1;
+
+    }
+
+    20%,70% {
+
     }
 
     50% {
         opacity: 0.3;
+
     }
 }
