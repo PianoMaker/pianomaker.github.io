@@ -26,7 +26,7 @@ body {
     padding: 10px;
     border: 1px solid #aa5;
     border-radius: 10px;
-    gap: 10px;
+    gap: 1px;
     background: linear-gradient(#a8ff6f 40%, #7af9bc 100%);   
     
 }
@@ -56,9 +56,13 @@ body {
 #right {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 20px; 
+    flex-direction: column;    
+    justify-content: space-between;
+    gap: 20px;
 }
+    #right a {
+        text-decoration-line: none;
+    }
 
 
 .oval {
@@ -76,7 +80,7 @@ body {
     border-radius: 25px;
     padding: 8px;
     background-color: white;
-    margin: 12px;
+    margin: 12px 18px;
     animation: swing 4s ease-in-out infinite;
     text-align: center;
     --white-opacity: 0;
@@ -96,9 +100,32 @@ body {
 
     }
 
-    .site a {
-        text-decoration-line: none;
+    .site span {
+        position: relative;
+        display: inline-block;
+        padding: 0 25px;
     }
+
+        .site span::before,
+        .site span::after {
+            content: "♪";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+        }
+
+        .site span::before {
+            left: 0;
+        }
+
+        .site span::after {
+            right: 0;
+        }
+
+    
+
+
 
 .solf {
     animation: swing 3.5s ease-in-out infinite;
@@ -121,7 +148,7 @@ body {
     }
 
 #projects {
-    position: relative;
+    position: relative;    
     margin-top: 5px;
     width: 100%;
     background-color: darkviolet;
@@ -138,10 +165,10 @@ body {
         left:0;
         content: "";
         height: 2.3em;
-        width: calc(100% + 20px);
+        width: calc(100% + 11px);
         background-color: darkviolet;
         border: 1px solid darkred;
-        transform: translate(-10px, 0px);
+        transform: translate(-1px, 0px);
         z-index: -1;
     }
 

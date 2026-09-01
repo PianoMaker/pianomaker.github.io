@@ -45,8 +45,7 @@
 
 #pianoroll {
     display: block;
-    position: relative;
-    width: 800px;
+    position: relative;    
     height: 200px;
     font-size: 0;
     overflow: hidden;
@@ -61,6 +60,7 @@
     box-shadow: var(--shadow-1);
     margin: 0;
     padding: 0;
+    background-image: repeating-linear-gradient( 0deg, rgba(138, 238, 26, 0.1) 0 1px, rgba(0, 0, 139, 0.2) 80px 120px,  rgba(0, 0, 139, 0.01) 200px );
 }
 
 /* білі клавіші */
@@ -71,7 +71,10 @@
     gap: 0px;
 }
 
-/* чорні клавіші */
+    .whitepianobutton:hover{
+        background-color: beige;
+    }
+    /* чорні клавіші */
 .blackpianobutton {
     position: absolute;
     width: 40px;
@@ -79,6 +82,10 @@
     background: linear-gradient(black, darkslategrey);
     margin: 0;
 }
+
+    .blackpianobutton:hover {
+        background: linear-gradient(darkslategrey, silver);
+    }
 
 /* позиції для кожної чорної клавіші */
 .cis1 {
@@ -215,18 +222,6 @@
 
 
 @media (max-width: 900px) {
-    .searchcontainer {
-        display: block;
-    }
-
-    .searchleftcontainer {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
     .whitepianobutton {
         width: 45px;
     }
@@ -285,21 +280,14 @@
         left: 570px;
     }
 
-    /* ensure right column uses same box model and no stray left offset */
-    .notesearchrightcontainer, .searchrightcontainer {
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
+    
     /* Enable horizontal scrolling of the keyboard inside the right column
      while keeping the visual keyboard contained by the parent. */
     #stainway {
         overflow-x: auto; /* allow horizontal scroll */
         overflow-y: visible; /* do not clip vertically */
         -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
-        max-width: 100%;
+        max-width: 98%;
         height: 200px;
         min-height: 200px;
         /*margin-top: 8px;*/ /* ensure visual separation from any above controls */
@@ -307,7 +295,7 @@
 
 
     #pianoroll {
-        min-width: 800px;
+        
         width: auto;
         height: 200px;
         overflow: visible;
@@ -350,251 +338,9 @@
         }
 }
 
-@media (max-width: 768px) {
-    .searchcontainer {
-        display: block;
-    }
-
-    .searchleftcontainer {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0;
-    }
-    .whitepianobutton {
-        width: 45px;
-    }
-    .blackpianobutton {
-        width: 37px;
-    }
-    .c3 {
-        display: none;
-    }
-}
-
-/* Додати до існуючого файлу */
 
 
 
-/* Адаптивне масштабування для нотних блоків */
-.melody-block [id^="notation_"] svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-}
-
-/* Додати для правильного масштабування на Search сторінці */
-.melody-block [id^="notation_match_"] {
-    width: 100%;
-    max-width: 100%;
-}
-
-    .melody-block [id^="notation_match_"] svg {
-        display: block;
-        width: 100% !important;
-        height: auto !important;
-        max-width: 100%;
-    }
-
-/* Забезпечити правильні розміри контейнера для containerWidth розрахунку */
-.melody-block {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-@media (max-width: 800px) {
-    .melody-block {
-        padding: 8px;
-    }
-
-        .melody-block [id^="notation_match_"] {
-            /* Переконатися що containerWidth правильно розраховується */
-            min-width: 0;
-        }
-}
-
-/* Контейнер результатів */
-#matchedMelodiesContainer {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* --- Compact controls for mobile (Search page) --- */
-/* Keep these rules at the end of notes.css so they override defaults */
-
-@media (max-width: 576px) {
-    /* make algorithm radios and melody/rythm checkboxes compact */
-    .compact-controls {
-        display: flex !important;
-        flex-wrap: wrap;
-        gap: 8px !important;
-        align-items: center !important;
-        margin: 0.25rem 0 !important;
-    }
-
-        .compact-controls .form-check {
-            display: inline-flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            gap: 6px !important;
-            white-space: nowrap !important;
-            min-width: 0 !important; /* allow flex shrinking */
-        }
-
-        .compact-controls .form-check-input {
-            margin: 0 !important;
-            width: 18px !important;
-            height: 18px !important;
-            flex: 0 0 auto !important;
-        }
-
-        .compact-controls .form-check-label {
-            display: inline-block !important;
-            width: auto !important;
-            white-space: nowrap !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            font-size: 0.95rem !important;
-        }
-
-        /* Slightly reduce the slider width on mobile when visible */
-        .compact-controls .form-range,
-        .compact-controls input[type="range"] {
-            width: 100px !important;
-            margin-left: 6px !important;
-            margin-right: 6px !important;
-        }
-
-        /* reduce gap between elements that were using gap-3 */
-        .compact-controls.gap-3 {
-            gap: 8px !important;
-        }
-
-    /* ensure hide-mobile keeps hiding on mobile */
-    .hide-mobile {
-        display: none !important;
-    }
-
-    /* minimal spacing for containing right-column controls */
-    .notesearchrightcontainer .d-flex.my-2 {
-        margin-top: 0.25rem !important;
-        margin-bottom: 0.25rem !important;
-    }
-}
-
-/* Fallback for small tablets */
-@media (min-width: 577px) and (max-width: 768px) {
-    .compact-controls .form-check-label {
-        font-size: 1rem !important;
-    }
-
-    .compact-controls .form-check-input {
-        width: 19px !important;
-        height: 19px !important;
-    }
-}
-
-/* Piano scroll wrapper: enable horizontal scrolling on narrow screens */
-@media (max-width: 900px) {
-    .piano-scroll-wrapper {
-        width: 100%;
-        box-sizing: border-box;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
-        padding-bottom: 6px; /* space for scrollbar */
-    }
-
-        /* Ensure inner keyboard keeps its intended layout/width so wrapper scrolls */
-        .piano-scroll-wrapper .piano-scroll-inner {
-            min-width: 800px; /* matches current piano natural width */
-        }
-
-        /* Light scrollbar styling */
-        .piano-scroll-wrapper::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .piano-scroll-wrapper::-webkit-scrollbar-thumb {
-            background: rgba(0,0,0,0.22);
-            border-radius: 4px;
-        }
-
-    .piano-scroll-wrapper {
-        -ms-overflow-style: auto;
-        scrollbar-width: thin;
-    }
-}
-
-/* use fluid width on narrow screens */
-.notesinfo {
-    width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
-    box-sizing: border-box;
-    margin: 0;
-}
-/* Responsive notesinfo: ensure it fits narrow screens */
-.notesinfo {
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: lightgray;
-    padding: 10px 10px;
-    margin: 0;
-    /*padding: 10px;*/
-}
-
-    /* letters / textarea: use full width inside notesinfo */
-    .notesinfo #lettersdisplay,
-    .notesinfo #lettersdisplay textarea,
-    .notesinfo #pianodisplay {
-        width: 100% !important;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* button area: flexible, wrap when narrow */
-    .notesinfo #buttonarea {
-        display: flex !important;
-        flex-wrap: wrap;
-        gap: 6px;
-        align-items: center;
-        width: auto !important; /* override inline width:60% if present */
-        box-sizing: border-box;
-        margin-top: 6px;
-    }
-
-        /* keep buttons compact and prevent overflow */
-        .notesinfo #buttonarea .btn-melody {
-            flex: 0 0 auto;
-            white-space: nowrap;
-        }
-
-/* small adjustments for very narrow screens */
-@media (max-width: 480px) {
-    .notesinfo {
-        padding: 6px;
-    }
-
-        .notesinfo #buttonarea {
-            gap: 4px;
-        }
-
-            .notesinfo #buttonarea .btn-melody {
-                font-size: 0.95rem;
-                padding: 6px 8px;
-            }
-        /* ensure textarea rows remain usable */
-        .notesinfo #pianodisplay {
-            height: auto;
-            min-height: 44px;
-        }
-}
 
 /* Duration panel on Search page */
 #durationspanel {
@@ -627,40 +373,11 @@
     justify-content: center;
 }
 
-@media (max-width: 900px) {
-   
-    #durationspanel {
-        flex-direction: column;
-        gap: 12px;
-        align-items: stretch;
-        padding: 8px;
-        margin-bottom: 12px; /* critical: push the piano down so it doesn't overlap */
-        box-sizing: border-box;
-        width: 100%;
-    }
-
-}
-
-.settimesignature {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-    .settimesignature input,
-    .settimesignature select,
-    .settimesignature span {
-        display: inline-block !important;
-        width: auto;
-        margin: 0 2px;
-        vertical-align: middle;
-        box-sizing: border-box;
-    }
 
 /*  ВИПРАВЛЕННЯ ПОЗИЦІЙ КЛАВІАТУРИ ДЛЯ ШИРОКИХ ЕКРАНІВ */
 
-@media (min-width: 901px) {
+
+@media (min-width: 1100px) {
     /* center piano without changing positioning context inside it */
     .piano-scroll-inner {
         text-align: center;
@@ -671,7 +388,6 @@
         /* preserve existing stacking and positioning */
         will-change: transform;
     }
-
 
     #pianoroll {
         display: block; /* restore block layout */
@@ -687,6 +403,29 @@
             display: inline-block;
             vertical-align: top;
         }
-
-
 }
+
+/*  ДЛЯ ВУЖЧИХ ЕКРАНІВ */
+
+
+
+@media (max-width: 1100px) {
+
+    .c3 {
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+
+    .whitepianobutton {
+        width: 45px;
+    }
+
+    .blackpianobutton {
+        width: 37px;
+    }
+}
+
