@@ -2,6 +2,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="notes.css">
+
 </head>
 <body>
     <div class="main">
@@ -9,57 +11,66 @@
             <div class="oval">
                 <h1>Andrii Bondarenko</h1>
                 <p>composer, pianist, programmer.</p>
-                <img src="academic.png" style="width:200px; opacity:0.95"/>
+                <img src="academic.png" style="width:200px; opacity:0.95" />
                 <p>About me <a href="https://andriibondarenko.pp.ua/">https://andriibondarenko.pp.ua/</a></p>
             </div>
         </div>
         <div id="right">
             <!--PROJECTS-->
-            <div id="projects">
-                <h3> My projects</h3>
-            </div>
-            <div class="site">
-                <a href="Melody.pp.ua">Melody</a>
-            </div>
-            <div class="site solf">
-                <a href="Solfegio.azurewebsites.net">Solfegio</a>
-            </div>
-            <div class="site personal">
-                <a href="andriibondarenko.pp.ua">Personal site</a>
+            <div id="allprojects">
+                <div id="projects">
+                    <h3> My projects</h3>
+                </div>
+                <div class="site">
+                    <a href="Melody.pp.ua">Melody</a>
+                </div>
+                <div class="site solf">
+                    <a href="Solfegio.azurewebsites.net">Solfegio</a>
+                </div>
+                <div class="site personal">
+                    <a href="andriibondarenko.pp.ua">Personal site</a>
+                </div>
             </div>
             <!--STAINWAY-->
-            <div id="stainway" class="controlcontainer">
-                <div id="pianoroll">
-                    <button type="button" data-key="c" class="whitepianobutton">C1</button>
-                    <button type="button" data-key="cis" class="blackpianobutton cis1">Cis1</button>
-                    <button type="button" data-key="d" class="whitepianobutton">D1</button>
-                    <button type="button" data-key="dis" class="blackpianobutton dis1">Dis1</button>
-                    <button type="button" data-key="e" class="whitepianobutton">E1</button>
-                    <button type="button" data-key="f" class="whitepianobutton">F1</button>
-                    <button type="button" data-key="fis" class="blackpianobutton fis1">Fis1</button>
-                    <button type="button" data-key="g" class="whitepianobutton">G1</button>
-                    <button type="button" data-key="gis" class="blackpianobutton gis1">Gis1</button>
-                    <button type="button" data-key="a" class="whitepianobutton">A1</button>
-                    <button type="button" data-key="b" class="blackpianobutton b1">B1</button>
-                    <button type="button" data-key="h" class="whitepianobutton">H1</button>
-                    <button type="button" data-key="c'" class="whitepianobutton">C2</button>
-                    <button type="button" data-key="cis'" class="blackpianobutton cis2">Cis2</button>
-                    <button type="button" data-key="d'" class="whitepianobutton">D2</button>
-                    <button type="button" data-key="dis'" class="blackpianobutton dis2">Dis2</button>
-                    <button type="button" data-key="e'" class="whitepianobutton">E2</button>
-                    <button type="button" data-key="f'" class="whitepianobutton ">F2</button>
-                    <button type="button" data-key="fis'" class="blackpianobutton highnote fis2">Fis2</button>
-                    <button type="button" data-key="g'" class="whitepianobutton highnote">G2</button>
-                    <button type="button" data-key="gis'" class="blackpianobutton highnote gis2">Gis2</button>
-                    <button type="button" data-key="a'" class="whitepianobutton highnote">A2</button>
-                    <button type="button" data-key="b'" class="blackpianobutton highnote b2">B2</button>
-                    <button type="button" data-key="h'" class="whitepianobutton highnote">H2</button>
-                    <button type="button" data-key="c''" class="whitepianobutton highnote c3">C3</button>
+            <div class="piano-scroll-wrapper" aria-label="Piano keyboard scroll container">
+                <div class="piano-scroll-inner">
+                    <div id="stainway" class="controlcontainer">
+                        <div id="pianoroll">
+                            <button type="button" data-key="c" class="whitepianobutton">C1</button>
+                            <button type="button" data-key="cis" class="blackpianobutton cis1">Cis1</button>
+                            <button type="button" data-key="d" class="whitepianobutton">D1</button>
+                            <button type="button" data-key="dis" class="blackpianobutton dis1">Dis1</button>
+                            <button type="button" data-key="e" class="whitepianobutton">E1</button>
+                            <button type="button" data-key="f" class="whitepianobutton">F1</button>
+                            <button type="button" data-key="fis" class="blackpianobutton fis1">Fis1</button>
+                            <button type="button" data-key="g" class="whitepianobutton">G1</button>
+                            <button type="button" data-key="gis" class="blackpianobutton gis1">Gis1</button>
+                            <button type="button" data-key="a" class="whitepianobutton">A1</button>
+                            <button type="button" data-key="b" class="blackpianobutton b1">B1</button>
+                            <button type="button" data-key="h" class="whitepianobutton">H1</button>
+                            <button type="button" data-key="c'" class="whitepianobutton">C2</button>
+                            <button type="button" data-key="cis'" class="blackpianobutton cis2">Cis2</button>
+                            <button type="button" data-key="d'" class="whitepianobutton">D2</button>
+                            <button type="button" data-key="dis'" class="blackpianobutton dis2">Dis2</button>
+                            <button type="button" data-key="e'" class="whitepianobutton">E2</button>
+                            <button type="button" data-key="f'" class="whitepianobutton ">F2</button>
+                            <button type="button" data-key="fis'" class="blackpianobutton highnote fis2">Fis2</button>
+                            <button type="button" data-key="g'" class="whitepianobutton highnote">G2</button>
+                            <button type="button" data-key="gis'" class="blackpianobutton highnote gis2">Gis2</button>
+                            <button type="button" data-key="a'" class="whitepianobutton highnote">A2</button>
+                            <button type="button" data-key="b'" class="blackpianobutton highnote b2">B2</button>
+                            <button type="button" data-key="h'" class="whitepianobutton highnote">H2</button>
+                            <button type="button" data-key="c''" class="whitepianobutton highnote c3">C3</button>
+                        </div>
+
+                    </div>
+
                 </div>
-
             </div>
-
         </div>
     </div>
+
+    <script src="audioHelpers.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
